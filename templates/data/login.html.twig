@@ -3,8 +3,8 @@
 {% block title %}Zadanie{% endblock %}
 
 {% block javascripts %} 
-<script language = "javascript" src = "https://code.jquery.com/jquery-3.3.1.min.js"></script> 
 
+<script language = "javascript" src = "https://code.jquery.com/jquery-3.3.1.min.js"></script> 
 <script language = "javascript">  
   
   $("#form_save").on("click", function(event){ 
@@ -36,6 +36,11 @@
 {% endblock %}  
 
 {% block body %}
+<style>
+  table{
+    border: 1px solid black;
+ }
+</style>
 
 {{ form_start(form) }}
 {{ form_end(form) }}

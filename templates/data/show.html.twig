@@ -6,7 +6,9 @@
 
 
 <div class="container">
+        <table>
     {% for user in users %}
+    
     <tr>
         <td>
             {{ user.name}} 
@@ -15,11 +17,11 @@
             {{ user.sname}}
         </td>
         <td>
-            <a href="/showFile/{{user.id}}">File</a>
+            <a target="_blank" href="/showFile/{{user.id}}">Plik</a>
         </td>
-        <br/>
-    </tr>
-    
+      
+    </tr>   
     {% endfor %}
+</table>
 </div>
 {% endblock %}
