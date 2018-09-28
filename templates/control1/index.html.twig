@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Zadanie{% endblock %}
+
+{% block javascripts %} 
+   <script language = "javascript" 
+      src = "https://code.jquery.com/jquery-2.2.4.min.js"></script> 
+   
+   <script language = "javascript">  
+      $(document).ready(function(){
+    
+          var $file;
+           
+        $("#form_file").on("change", function() {
+                $file = this.files[0];
+        });
+
+         $("#form_save").on("click", function(event){ 
+            let $name = $('#form_Name').val();
+            let $sname = $('#form_Sname').val(); 
+          
+           
+           
+            $formdata = new FormData();   
+            $formdata.append("file", $file);
+            $formdata.append("fname", $file.name);
+            $formdata.append("name", $name);
+            $formdata.append("sname", $sname);
+
+          
+            console.log($file.name);
+
+           
+            $.ajax({  
+               url:        '/add',  
+               type:       'POST',   
+               data:  $formdata,
+               processData: false,
+               contentType: false,
+               
+               success: function(data, status) {  
+                 alert(data);
+               },  
+               error : function(xhr, textStatus, errorThrown) {  
+                  alert('Ajax request failed.');  
+               }  
+            });  
+         });  
+      });  
+   </script> 
+{% endblock %}  
+
+{% block body %}
+
+
+{{ form_start(form) }}
+{{ form_end(form) }}
+
+{% endblock %}
+
+

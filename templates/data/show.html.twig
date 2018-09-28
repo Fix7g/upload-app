@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Zadanie{% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+    {% for user in users %}
+    <tr>
+        <td>
+            {{ user.name}} 
+        </td>
+        <td>
+            {{ user.sname}}
+        </td>
+        <td>
+            <a href="/showFile/{{user.id}}">File</a>
+        </td>
+        <br/>
+    </tr>
+    
+    {% endfor %}
+</div>
+{% endblock %}

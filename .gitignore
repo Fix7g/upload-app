@@ -1,0 +1,7 @@
+.env
+publicbundles
+var
+vendor
+.phpunit
+phpunit.xml
+.web-server-pid

@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Zadanie{% endblock %}
+
+{% block javascripts %} 
+   <script language = "javascript" 
+      src = "https://code.jquery.com/jquery-2.2.4.min.js"></script> 
+   
+   <script language = "javascript">  
+      $(document).ready(function(){
+   
+         $("#form_save").on("click", function(event){ 
+            let $login = $('#form_Name').val();
+            let $password = $('#form_pass').val(); 
+            
+            
+           
+            $formdata = new FormData();   
+            $formdata.append("login", $login);
+            $formdata.append("password", $password);
+     
+            $.ajax({  
+               url:        '/log',  
+               type:       'POST',   
+               data:  $formdata,
+               processData: false,
+               contentType: false,
+               
+               success: function(data, status) { 
+                 $('#id').html( data);
+               },  
+               error : function(xhr, textStatus, errorThrown) {  
+                  alert('Ajax request failed.');  
+               }  
+            });  
+         });  
+      });  
+   </script> 
+{% endblock %}  
+
+{% block body %}
+
+
+{{ form_start(form) }}
+{{ form_end(form) }}
+
+<div id = "id">
+</div>
+
+{% endblock %}
+
+
